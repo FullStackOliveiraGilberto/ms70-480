@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		window.onload=function(){
+			// var element = document.getElementById('outerDiv').insertBefore(
+			// 		document.createElement('article'),
+			// 		document.getElementById('innerDiv'
+			// 	));
+			//alert(element.innerHTML);
+			// var paragraphs = document.getElementsByClassName('subPara');
+			// alert(paragraphs.length)
+			// var paragraphs=document.querySelectorAll('p');
+			// var outerDiv = document.querySelector('#outerDiv');
+			// alert(outerDiv.innerHTML);
+			// var element = document.getElementById('innerDiv');
+			// alert(element.innerHTML);
+			// document.removeChild(element);
+			// var afterRemove = document.getElementById('innerDiv');
+			// alert(afterRemove);
+			// var article = document.createElement('article');
+			// article.innerText = 'My new grovvy article';
+			// outerDiv.appendChild(article);
+			
+			// element.innerText = 'My new grovvy article';
+			//outerDiv.appendChild(article);
+			var innerDiv = document.getElementById('innerDiv');
+			var outerDiv = document.getElementById('outerDiv');
+			var newDiv = document.createElement('div');
+			for (var i = 0; i <innerDiv.childNodes.length; i++) {
+				var anchor = newDiv.appendChild(document.createElement('a'));
+				anchor.setAttribute('href', 'http://qualls.me');
+				anchor.text=innerDiv.childNodes[i].textContent;	
+				newDiv.appendChild(document.createElement('br'));
+			}
+			outerDiv.replaceChild(newDiv, innerDiv);
+		}
+	</script>
+</head>
+<body>
+<div id="outerDiv">
+	<ul>
+		<li>First item</li>
+		<li>second</li>
+		<li>third</li>
+		<li>forth</li>
+		<li>fifth</li>
+	</ul>
+	<div id="innerDiv">
+		<p class="subPara" id="p1">Para1</p>
+		<p class="subPara" id="p2">para2</p>
+		<p class="subPara" id="p3">para3</p>
+		<p class="subPara" id="p4">para4</p>
+	</div>
+	<table>
+		<tr>
+			<td>row1</td>
+		</tr>
+		<tr>
+			<td>row2</td>
+		</tr>
+		<tr>
+			<td>row3</td>
+		</tr>
+		<tr>
+			<td>row4</td>
+		</tr>
+		<tr>
+			<td>row5</td>
+		</tr>
+	</table>
+	<input type="text"><input type="submit">
+</div>
+</body>
+</html>

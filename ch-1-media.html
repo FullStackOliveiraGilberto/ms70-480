@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		img:hover{
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		var video;
+		window.onload=function(){
+			video=document.getElementById('sampleVideo');
+		}
+		function play() {
+			video.play();
+		}
+		function pause(){
+			video.pause();
+		}
+		function back(){
+			video.currentTime -=10;
+		}
+	</script>
+</head>
+<body>
+	<video height="400" width="600" id="sampleVideo" controls>
+					<source src="videos/bowling.mp4" type="audio/mp4"/>
+	</video>
+	<table>
+		<tr>
+			<td>
+				<video height="400" width="600" id="sampleVideo">
+					<source src="videos/bowling.mp4" type="audio/mp4"/>
+				</video>
+			</td>
+			<td>
+				<button onclick="play();">Play</button><br>
+				<button onclick="pause();">Pause</button><br>
+				<button onclick="back();">Back</button><br>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>>
