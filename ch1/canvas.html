@@ -1,0 +1,132 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+	
+	<script>
+		window.onload = function(){
+			var drawingSurface = document.getElementById('drawingSurface');
+			var ctxt = drawingSurface.getContext('2d');
+			// drawLines(ctxt);
+			// drawCurves(ctxt);
+			// drawQuadCurve(ctxt);
+			// drawBezierCurve(ctxt);
+			//drawCustomPath(ctxt);
+			//drawRect(ctxt);
+			//drawGradient(ctxt);
+			drawSomeText(ctxt, drawingSurface);
+
+		};
+
+		function drawSomeText(ctxt, drawingSurface){
+			ctxt.strokeText('1. text with default font',100,100);
+			ctxt.font='24px arial';
+			ctxt.strokeStyle='red';
+			ctxt.strokeText('2. text with altered font',100,125);
+			ctxt.font='24px arial';
+			ctxt.textAlign='center';
+			ctxt.fillStyle='red';
+			ctxt.fillText('3. text with altered colored font',drawingSurface.width/2,drawingSurface.height/2);
+		}
+
+		function drawGradient(ctxt){
+			ctxt.lineWidth=3;
+			ctxt.rect(150,150,200,125);
+			var gradient=ctxt.createLinearGradient(150,150,200,125);
+			gradient.addColorStop(0,'black');
+			gradient.addColorStop(.5,'gray');
+			gradient.addColorStop(1,'white');
+			ctxt.fillStyle = gradient;
+			ctxt.fill();
+			ctxt.stroke();
+		}
+
+		function drawRect(ctxt){
+			var x,y;
+			x=150;
+			y=75;
+			ctxt.beginPath();
+			ctxt.rect(300-(x/2),200-(y/2),x,y);
+			ctxt.stroke();
+			ctxt.fillStyle='blue';
+			ctxt.fill();
+		}
+
+		function drawCustomPath(ctxt){
+			ctxt.beginPath();
+			ctxt.arc(300,200,75,1.75*Math.PI,1.25*Math.PI, false);
+			ctxt.lineTo(150, 125);
+			ctxt.quadraticCurveTo(300,0,450,125);
+			ctxt.lineTo(353,144);
+			ctxt.strokeStyle='blue';
+			ctxt.lineCap='round';
+			ctxt.lineWidth=10;
+			ctxt.fillStyle='green';
+			ctxt.fill();
+			ctxt.stroke();
+
+		}
+
+		function drawBezierCurve(ctxt){
+			ctxt.beginPath();
+			ctxt.moveTo(125, 20)
+			ctxt.bezierCurveTo(0, 200,300, 300, 50,400);
+			ctxt.lineWidth=3;
+			ctxt.strokeStyle='red';
+			ctxt.stroke();
+		}
+
+		function drawQuadCurve(ctxt){
+			ctxt.beginPath();
+			ctxt.moveTo(10, 380)
+			ctxt.quadraticCurveTo(100,-250,580,380);
+			ctxt.lineWidth=3;
+			ctxt.strokeStyle='grey';
+			ctxt.stroke();
+		}
+
+		function drawCurves(ctxt){
+			ctxt.beginPath();
+			ctxt.arc(150,100,75,0,2*Math.PI, false);
+			ctxt.lineWidth=25;
+			ctxt.strokeStyle='#0f0';
+			ctxt.stroke();
+
+			ctxt.beginPath();
+			ctxt.arc(450,100,75,1.5*Math.PI,2*Math.PI, true);
+			ctxt.lineWidth=25;
+			ctxt.strokeStyle='blue';
+			ctxt.stroke();
+		}
+
+		function drawLines(ctxt){
+			ctxt.beginPath();
+			ctxt.moveTo(10, 10);
+			ctxt.lineTo(255, 350);
+			ctxt.lineWidth=5;
+			ctxt.strokeStyle='#0f0';
+			ctxt.lineCap='square';
+			ctxt.stroke();
+			ctxt.beginPath();
+			ctxt.moveTo(10, 10);
+			ctxt.lineTo(255, 350);
+			ctxt.lineTo(300, 10);
+			ctxt.lineWidth=1;
+			ctxt.strokeStyle='#000';
+			ctxt.lineTo(400, 350);
+			ctxt.stroke();
+		}
+	</script>
+
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser sucks. Please upgrade so you can see this content.
+	</canvas>
+</body>
+</html>

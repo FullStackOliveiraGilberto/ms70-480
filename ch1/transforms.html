@@ -1,0 +1,26 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>transforms</title>
+	<style>
+		#orange1{
+			height: 150px;
+			width: 225px;
+		}
+		.trans {
+			/*transform: translate(50px,0px) scale(1.5) skew(10deg,10deg);*/
+			transform: translate(100px,0px);
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		document.getElementById('orange1').onclick = function(){
+			this.classList.add('trans');
+		}
+	}
+	</script>
+</head>
+<body>
+	<img src="orange.jpg" alt="" id="orange1" style="position: relative"/>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Applying styles programatically</title>
+	<style>
+		html, body {
+			height: 100%;
+			width: 100%;
+		}
+		img{
+			height: 150px;
+			width: 225px;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var top = document.getElementById('topText');
+		var left = document.getElementById('leftText');
+		var pos = document.getElementById('positioning');
+		document.getElementById('btnPosition').onclick = function(){
+			var img = document.getElementById('orange2');
+			img.style.position = pos.value;
+			img.style.left = left.value + 'px';
+			img.style.top = top.value + "px";
+
+		}
+	}
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td style="vertical-align: top; width: 80%">
+				<img src="orange.jpg" alt="" id="orange1">
+				<img src="orange.jpg" alt="" id="orange2">
+			</td>
+			<td style="vertical-align: top;">Left:
+				<input type="text" id="leftText">
+				Top:
+				<input type="text" id="topText">
+				Position:
+				<select name="" id="positioning">
+					<option value="relative">relative</option>
+					<option value="absolute">absolute</option>
+				</select><br>
+				<input type="button" id="btnPosition" value="Update">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

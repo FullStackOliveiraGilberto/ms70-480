@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>transforms</title>
+	<style>
+		/*#orange1{
+			height: 150px;
+			width: 225px;
+		}*/
+		.trans {
+			/*transform: translate(50px,0px) scale(1.5) skew(10deg,10deg);*/
+			transform: translate(100px,0px);
+		}
+		.dropzone{
+			width: 200px;
+			height: 200px;
+			margin-top: 100px;
+			border: 1px solid;
+			text-align: center;
+			
+		}
+		.background{
+		   background-image:url("data:image/svg+xml;utf8,
+		  <svg xmlns='http://www.w3.org/2000/svg' version='1.1'
+		       height='50px' width='120px'>
+		    <text x='0' y='15' fill='red' font-size='20'>Drop Here</text>
+		  </svg>");
+		}
+		.trans1{
+			transform: rotate(45deg);
+		}
+		.trans2{
+			transform: rotate(90deg);
+		}
+		.trans3{
+			transform: rotate(45deg);
+		}
+		.trans4{
+			transform: rotate(45deg);
+		}
+	</style>
+	<script>
+		function allowDrop(ev) {
+    		ev.preventDefault();
+		}
+
+		function drag(ev) {
+		    ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+		    ev.preventDefault();
+		    var data = ev.dataTransfer.getData("text");
+		    var element = document.getElementById(data);
+		    ev.target.appendChild(document.getElementById(element.id));
+		    spin(element);
+		}
+		function spin(element){
+			window.setTimeout(function(){
+					element.classList.add('trans1');
+					},
+					1000);
+			window.setTimeout(function(){
+					element.classList.remove('trans1');
+					element.classList.add('trans2');
+					},
+					1000);
+		}
+
+	window.onload = function(){
+		
+
+		
+	}
+	</script>
+</head>
+<body>
+	<div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<img draggable="true" src="orange.jpg" ondragstart="drag(event)" alt="" id="orange1" style="position: relative"/>
+	</div>
+	<div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<span class="background"></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Working with HTML5 APIs</title>
+	<style>
+		section{
+			margin-top: 15px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			loadFromStorage();
+			document.getElementById('btnAdd').onclick = function(){
+				localStorage.setItem(document.getElementById('toStorageKey').value,
+					document.getElementById('toStorageValue').value);
+				loadFromStorage();
+			}
+			document.getElementById('btnRemove').onclick = function(){
+				localStorage.removeItem(document.getElementById('toStorageKey').value);
+				loadFromStorage();
+			}
+			document.getElementById('btnClear').onclick = function(){
+				localStorage.clear();
+				loadFromStorage();
+			}
+			function loadFromStorage(){
+				var storageDiv = document.getElementById('storage');
+				var tbl = document.createElement('table');
+				tbl.id = 'storageTable';
+				if(localStorage.length>0){
+					for (var i = 0; i < localStorage.length; i++){
+						var row = document.createElement('tr');
+						var key = document.createElement('td');
+						var val = document.createElement('td');
+						key.innerText = localStorage.key(i);
+						val.innerText = localStorage.getItem(key.innerText);
+						row.appendChild(key);
+						row.appendChild(val);
+						tbl.appendChild(row);
+					}
+				}
+				else{
+					var row = document.createElement('tr');
+					var col = document.createElement('td');
+					col.innerText = 'No data in storage.';
+					row.appendChild(col);
+					tbl.appendChild(row);
+				}
+				var docTable = document.getElementById('storageTable');
+				if(docTable){
+					var parent = document.getElementById('storage');
+					parent.replaceChild(tbl, docTable);
+				}
+				else{
+					storageDiv.appendChild(tbl);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<section>
+		Key:
+		<input type="text" id="toStorageKey"/>
+		Value:
+		<input type="text" id="toStorageValue">
+	</section>
+	<section>
+		<button id="btnAdd">Add to Storage</button>
+		<button id="btnRemove">Remove from Storage</button>
+		<button id="btnClear">Clear Storage</button>
+	</section>
+	<div id="storage">
+		<p>Current Storage Contents</p>
+	</div>
+</body>
+</html>
