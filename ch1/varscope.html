@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Variable Scope</title>
+	<style>
+		div{
+			width: 100px;
+			height:100px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="Div1">div1</div>
+	<div id="Div2">div2</div>
+	<div id="Div3">div3</div>
+
+
+	<script>
+		var globalVar = 'global';
+		window.onload = function(){
+			var localVar = 'local';
+			function aFunction(){
+				var x;
+				alert(insideDiv3);
+			}
+			function bFunctionWithParam(p){
+				alert(p);
+				alert(localVar);
+			}
+
+			document.getElementById('Div1').onclick = function(){
+				var insideDiv1Click = 'insideDiv1';
+				alert(globalVar);
+				alert(localVar);
+				alert(insideDiv1Click);
+			};
+			document.getElementById('Div2').onclick = function(){
+				alert(globalVar);
+				alert(localVar);
+				alert(insideDiv1Click);
+			};
+			document.getElementById('Div3').onclick = function(){
+				var insideDiv3 = 'Div3';
+				aFunction();
+				bFunctionWithParam(insideDiv3);
+			};
+
+		};
+	</script>
+</body>
+</html>

@@ -9,6 +9,11 @@
 	</style>
 	<script>
 		window.onload = function(){
+			var replicant = new Object();
+			replicant.firstName = 'Rick';
+			replicant.lastName = 'Dekkard';
+			replicant.series = 'Nexus 6';
+			localStorage.setItem('androids', JSON.stringify(replicant));
 			loadFromStorage();
 			document.getElementById('btnAdd').onclick = function(){
 				localStorage.setItem(document.getElementById('toStorageKey').value,

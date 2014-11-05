@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geolocation APIs</title>
+	<script>
+	function successPosition(pos){
+		var sp=document.createElement('p');
+		sp.innerText = 'Lat: ' + pos.coords.latitude + ' Long: ' + pos.coords.longitude;
+		document.getElementById('geoResults').appendChild(sp);
+	}
+	function errorPosition(err){
+		var sp=document.createElement('p');
+		sp.innerText = 'Error: ' + err.message + ' Code: ' + err.code;
+		document.getElementById('geoResults').appendChild(sp); 
+	}
+	window.onload = function(){
+		var geoLocator = window.navigator.geolocation;
+		var posOptions = {
+			enableHighAccuracy: true,
+			timeout: 45000
+		};
+		geoLocator.getCurrentPosition(successPosition, errorPosition, posOptions);
+	}
+	</script>
+</head>
+<body>
+	<div id="geoResults">
+		<p>Current Location is:</p>
+	</div>
+</body>
+</html>
