@@ -1,0 +1,179 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays</title>
+	<style>
+		table, tr, td {
+			border: solid 1px;
+		}
+	</style>
+</head>
+<body>
+	<table id="array-table">
+		
+	</table>
+	<hr>
+	<div id="concat-div"></div>
+	<hr>
+	<div id="index-div"></div>
+	<hr>
+	<div id="join-div"></div>
+	<hr>
+	<div id="reverse-div"></div>
+	<hr>
+	<div id="sort-div"></div>
+	<hr>
+	<div id="slice-div"></div>
+	<hr>
+	<div id="splice-div"></div>
+	<hr>
+	<div id="push-div"></div>
+	<hr>
+	<div id="shift-div"></div>
+	<hr>
+	<div id="queue-div"></div>
+	<script>
+		
+		function drawArray(){
+			var multiArray = new Array(3);
+			multiArray[0] = new Array(3);
+			multiArray[1] = new Array(3);
+			multiArray[2] = new Array(3);
+			var i=0;
+			var j=0;
+			var tbl;
+			var row;
+			var td;
+			var offset = 1;
+
+			for (i = 0; i < multiArray.length; i++ ) {
+				tbl = document.getElementById('array-table');
+				row = document.createElement('tr');
+				for (j = 0; j < multiArray[i].length; j++){
+					multiArray[i][j] = i + j + offset;
+					cell = document.createElement('td');
+					cell.innerHTML = multiArray[i][j];
+					row.appendChild(cell);
+				}
+				offset= offset+2;
+				tbl.appendChild(row);
+			};
+		}
+
+		function useConcat(){
+			var sports = new Array('football', 'cricket' ,'rugby', 'tennis', 'badminton' );
+			var moreSports = new Array('soccer', 'basketball', 'hockey');
+			var combinedSports = sports.concat(moreSports);
+			document.getElementById('concat-div').innerHTML = combinedSports;
+		}
+
+		function useIndex(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			var index = sports.indexOf('football', 0);
+			document.getElementById('index-div').innerHTML = sports +  '<br/> The index of football is ' + index;
+		}
+
+		function useJoin(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			var joined = sports.join(',');
+			joined = joined.replace(/,/g, '#')
+			document.getElementById('join-div').innerHTML = 'joined: ' + joined;
+		}
+
+		function useReverse(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			sports.reverse();
+			document.getElementById('reverse-div').innerHTML = 'reversed: ' + sports;
+		}
+
+		function useSort(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			var div = document.getElementById('sort-div');
+			var sort1 = document.createElement('div');
+			var sort2 = document.createElement('div');
+			sort1.innerHTML = 'original: ' + sports;
+			sports.sort();
+			sort2.innerHTML = 'sorted: ' + sports;
+			div.appendChild(sort1);
+			div.appendChild(sort2);
+		}
+
+		function useSlice(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			var someSports = sports.slice(1,2);
+			document.getElementById('slice-div').innerHTML = 'original array: ' + sports + '<br/> sliced elements: ' + someSports;
+		}
+
+		function useSplice(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			var splicedItems = sports.splice(1,3,'golf', 'curling', 'darts');
+			document.getElementById('splice-div').innerHTML = 'spliced array: ' + sports + '<br/> spliced-out elements: ' + splicedItems;
+		}
+
+		function usePush(){
+			var sports = new Array();
+			sports.push('soccer', 'basketball', 'hockey');
+			var div = document.getElementById('push-div');
+			var push1 = document.createElement('div');
+			var push2 = document.createElement('div');
+			push1.innerHTML = '1st Push: ' + sports;
+			sports.push('football');
+			push2.innerHTML = '2nd Push: ' + sports;
+			div.appendChild(push1);
+			div.appendChild(push2);
+			var popped = document.createElement('div');
+			popped.innerHTML = 'Popped element: ' + sports.pop();
+			div.appendChild(popped);
+
+		}
+
+		function useShift(){
+			var sports = new Array();
+			sports.unshift('soccer', 'basketball', 'hockey');
+			var div = document.getElementById('shift-div');
+			var child1 = document.createElement('div');
+			var child2 = document.createElement('div');
+			var child3 = document.createElement('div');
+			child1.innerHTML = 'result of unshift 1: ' + sports;
+			div.appendChild(child1);
+			sports.unshift('footballl');
+			child2.innerHTML = 'result of unshift 2: ' + sports;
+			div.appendChild(child2);
+			child3.innerHTML = 'shifted element: ' +  sports.shift();
+			div.appendChild(child3);
+		}
+
+		function createQueue(){
+			var sports = new Array();
+			sports.push('soccer');
+			sports.push('basketball');
+			sports.push('hockey');
+			var div = document.getElementById('queue-div');
+			var child1 = document.createElement('div');
+			var child2 = document.createElement('div');
+			var child3 = document.createElement('div');
+			child1.innerHTML = 'pushes: ' + sports;
+			child2.innerHTML = 'shift: ' + sports.shift() + '<br/>queue after shift: ' + sports;
+			div.appendChild(child1);
+			div.appendChild(child2);
+			sports.push('golf');
+			child3.innerHTML = 'queue after 2nd push: ' + sports + '<br/>shift 2: ' + sports.shift();
+			div.appendChild(child3);
+		}
+
+		window.onload = function(){
+			drawArray();
+			useConcat();
+			useIndex();
+			useJoin();
+			useReverse();
+			useSort();
+			useSlice();
+			useSplice();
+			usePush();
+			useShift();
+			createQueue();
+		};
+	</script>
+</body>
+</html>
