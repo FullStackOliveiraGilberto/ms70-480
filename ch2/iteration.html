@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Iterations</title>
+</head>
+<body>
+	
+
+	<script>
+		function useForIn(){
+			var person = { firstName: 'Jane', lastName: 'Doe', birthdate: 'Jan 5, 1925', gender: 'female'}
+			for (prop in person){
+				document.write(person[prop] + '<br/>')
+			}
+		}
+
+		function useWhile(){
+			var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+			var i = 0;
+			while(i<alphabet.length){
+				i++;
+				document.write(i + ' ');
+			}
+		}
+
+		window.onload = function(){
+			useForIn();
+			useWhile();
+		};
+		
+	</script>
+</body>
+</html>
