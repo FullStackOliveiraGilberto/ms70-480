@@ -32,6 +32,21 @@
 	<div id="shift-div"></div>
 	<hr>
 	<div id="queue-div"></div>
+	<hr>
+	<div id="every-div"></div>
+	<div id="every-div2"></div>
+	<hr>
+	<div id="some-div"></div>
+	<div id="some-div2"></div>
+	<hr>
+	<ul id="sportsList"></ul>
+	<hr>
+	Even Numbers from Array: <ul id="filter-div"></ul>
+	<hr>
+	Rounded numbers from array: <div id="map-div"></div>
+	<hr>
+	<div id="reduce-div1"></div>
+	<div id="reduce-div2"></div>
 	<script>
 		
 		function drawArray(){
@@ -161,6 +176,96 @@
 			div.appendChild(child3);
 		}
 
+		function useEvery(){
+			var array1 = new Array(0,2,4,6,8,9,10,12);
+			var array2 = new Array(0,2,4,6,8,10,12);
+
+			var check1 = array1.every(evenNumberCheck, this);
+			var check2 = array2.every(evenNumberCheck, this);
+			var div = document.getElementById('every-div');
+			var div2 = document.getElementById('every-div2');
+
+
+			if(check1){
+				div.innerHTML = 'In the array: ' + array1 + ', all numbers are all even';
+			}else{
+				div.innerHTML = 'In the array: ' + array1 + ', all numbers are all not even';
+			}
+			if(check2){
+				div2.innerHTML = 'In the array: ' + array2 + ', all numbers are all even';
+			}else{
+				div2.innerHTML = 'In the array: ' + array2 + ', all numbers are all not even';
+			}
+			
+			
+		}
+		function useSome(){
+			var array1 = new Array(0,2,4,6,8,9,10,12);
+			var array2 = new Array(3,7,9,37,457);
+
+			var check1 = array1.some(evenNumberCheck, this);
+			var check2 = array2.some(evenNumberCheck, this);
+			var div = document.getElementById('some-div');
+			var div2 = document.getElementById('some-div2');
+
+
+			if(check1){
+				div.innerHTML = 'In the array: ' + array1 + ', some of the numbers are even';
+			}else{
+				div.innerHTML = 'In the array: ' + array1 + ', none of the numbers are even';
+			}
+			if(check2){
+				div2.innerHTML = 'In the array: ' + array2 + ', some of the numbers are even';
+			}else{
+				div2.innerHTML = 'In the array: ' + array2 + ', none of the numbers are even';
+			}
+			
+			
+		}
+
+		function evenNumberCheck(value, index, array){
+			return (value % 2) == 0;
+		}	
+
+		function useForEach(){
+			var sports = new Array('soccer', 'basketball' ,'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton' );
+			sports.sort().reverse().forEach(offerSport);
+			function offerSport(value, index, array){
+				var sportsList = document.getElementById('sportsList');
+				var bullet = document.createElement('li');
+				bullet.innerText = value;
+				sportsList.appendChild(bullet);
+			}
+		}
+		function useFilter(){
+			var array1 = new Array(0,2,4,6,8,9,10,12);
+			var allEven = array1.filter(evenNumberCheck, array1);
+			var list = document.getElementById('filter-div');
+			allEven.forEach(function(value, index, array){
+				var item = document.createElement('li');
+				item.innerText = value;
+				list.appendChild(item);
+			});
+		}
+		function useMap(){
+			var money = [12.8, 15.9, 21.7, 35.2];
+			var roundedMoney = money.map(function(item){
+				return Math.round(item);
+			});
+			document.getElementById('map-div').innerHTML = roundedMoney;
+		}
+		function useReduce(){
+			var numbers = [1,2,3,4,5,6,7,8,9,10];
+			var factorials = numbers.reduce(factorial);
+			var div1 = document.getElementById('reduce-div1');
+			var div2 = document.getElementById('reduce-div2');
+			div1.innerHTML = 'Array: ' + numbers;
+			div2.innerHTML = 'Factorals of array: ' + factorials;
+			function factorial(previous, current){
+				return previous * current;
+			}
+		}
+
 		window.onload = function(){
 			drawArray();
 			useConcat();
@@ -173,6 +278,12 @@
 			usePush();
 			useShift();
 			createQueue();
+			useEvery();
+			useSome();
+			useForEach();
+			useFilter();
+			useMap();
+			useReduce();
 		};
 	</script>
 </body>
