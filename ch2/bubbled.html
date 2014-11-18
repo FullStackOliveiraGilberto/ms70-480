@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Handling Bubbled Events</title>
+	 <style>       
+
+        #outer {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #middle {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            background-color: green;
+        }
+        #inner {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            background-color: blue;
+        }
+    </style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<script src="events.js"></script>
+</head>
+<body id="bod">
+    <div id="outer">
+        <div id="middle" >
+            <div id="inner" >                
+            </div>
+        </div>
+    </div>
+    <ol id="eventOrder">        
+    </ol>
+    <button type="button" id="clearButton">Clear</button>
+	
+
+
+
+
+	<script>
+		$(document).ready(function($) {
+			handleEventBubbling();
+		});
+	</script>
+</body>
+</html>

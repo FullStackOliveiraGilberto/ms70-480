@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Handling DOM Events</title>
+	<style>
+		.scale {
+            transform:scale(1.5);
+        }
+        
+	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<script src="events.js"></script>
+</head>
+<body>
+change event <br>
+	<input type="range" min="0" max="200" value="0" id="aRange"/>
+	<div id="rangeValue"></div>
+	<input type="text" id="aText">
+	<hr>
+	Blur event <br>
+	Enter First Name: <input type="text" id="firstNameText">
+	<div id="ruleViolation"></div>
+
+	<hr>
+	Keyboard Events <br>
+	Enter First Name: <input type="text" id="firstNameText2">
+	Key pressed: <div id="keys"></div>
+	<hr>
+	Mouse Click Handler <br>
+	<div id="yellowBox" style="width: 200px; height: 200px; background-color: yellow;"></div>
+	<div id="output"></div>
+	<hr>
+	Scale on mouse enter
+	<div id="redBox" style="width: 200px; height: 200px; background-color: red;"></div>
+	<hr>
+	
+	<script>
+	$(document).ready(function() {
+		addChangeListener();
+		addChangeListener2();
+		addBlurListener();
+		addKeydownListener();
+		addClickHandler();
+		addClassOnMouseEnter();
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Drag and Drop</title>
+	<style>
+		.dropped {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;    
+            background-color:black;        
+        }
+        .over {
+            transform: scale(1.1);
+        }
+        
+        .bucket {
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px 10px 10px; 
+            position:absolute;           
+        }
+        .chip {
+            width:20px;
+            height:20px;
+            position:absolute;
+             
+        }
+        div:first-of-type {
+            background-color: red;
+            
+        }
+        div:nth-of-type(2) {
+            background-color: green;
+            left:25%;
+        }
+        div:nth-of-type(3) {
+            background-color: blue;
+            left:50%;
+        }
+
+        #chip {
+            background-color: black; 
+            width:50px;
+            height:50px;                      
+        }
+
+        .begin {
+            position:absolute;
+            left: 150px;
+            top: 150px;
+        }
+	</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<script src="events.js"></script>
+</head>
+<body>
+	Drag and Drop
+	<div id="bucket1" class="bucket"></div> 
+    <div id="bucket2" class="bucket"></div>
+    <div id="bucket3" class="bucket"></div>
+    <div id="chip" class="begin" draggable="true"></div>
+    <script>
+    $(document).ready(function() {
+    	addDragAndDropStuff();
+    });
+    </script>
+</body>
+</html>

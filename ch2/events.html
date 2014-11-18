@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Events</title>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="events.js"></script>
+</head>
+<body onload="onLoadHandlerInline()">
+	<div id="evt-div"></div>
+	<hr>
+	<div id="div1"></div>
+	<hr>
+	<div id="div2"></div>
+	<hr>
+	<a href="http://google.com" id="aLink">Take me to Google</a>
+
+
+	<script>
+		$(document).ready(function(){
+			windowEventHandler(event);
+			onLoadHandlerPrg();
+			addListeners();
+			addAnchorClickHandler();
+		});
+	</script>
+</body>
+</html>
