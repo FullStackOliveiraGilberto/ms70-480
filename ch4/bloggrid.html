@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100% ;
+        }
+
+        #blogPage {
+            display: -ms-grid;
+            -ms-grid-columns: 15% 1fr 25%;
+            -ms-grid-rows: (20%)[5];
+            width: 90%;
+            height: 95%;            
+            border: 1px dotted black;   
+            margin: auto;         
+        }
+
+            #blogPage > header {
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+                -ms-grid-row: 1;
+                border: 1px dotted black;
+            }
+
+            #blogPage > footer {
+                -ms-grid-column: 1;
+                -ms-grid-row: 5;
+                -ms-grid-column-span: 3;
+                border: 1px dotted black;
+            }
+
+            #blogPage > article {
+                -ms-grid-column: 2;
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 3;
+                border: 1px dotted black;
+            }
+
+            #blogPage > #calender {
+                -ms-grid-column: 3;
+                -ms-grid-row: 3;
+                border: 1px dotted black;
+            }
+
+            #blogPage > #blogRoll {
+                -ms-grid-column: 3;
+                -ms-grid-row: 4;
+                border: 1px dotted black;
+            }
+
+            #blogPage > #aboutMe {
+                -ms-grid-column: 1;
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 3;
+                border: 1px dotted black;
+            }
+
+            #blogPage > #bloghistory {
+                -ms-grid-column: 3;
+                -ms-grid-row: 2;
+                border: 1px dotted black;
+            }
+    </style>
+</head>
+<body>
+<h1>Screwed again, by Microsoft. Unless you are viewing in IE, this technique is pointless. Go get Bootstrap if you want to achieve the intended layout without browsing with IE.</h1>
+    <div id="blogPage">
+
+        <header>My Blog Header</header>
+        <article>My Blog's Main Body</article>
+        <footer>My Blog Footer</footer>
+        <aside id="calender">A calender</aside>
+        <aside id="blogRoll">My favorite blogs</aside>
+        <aside id="aboutMe">Who am I?</aside>
+        <aside id="bloghistory">My blog history</aside>
+    </div>
+    
+</body>
+</html>

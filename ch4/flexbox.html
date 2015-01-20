@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+	<style>
+		#flexbox1{
+			display: flex;
+			border: 1px solid black;
+			margin-top: 100px;
+			min-height: 15px;
+		}
+		#flexbox1 > div{
+			width: 80px;
+			height: 80px;
+			border: 1px solid black;
+			margin: 5px;
+		}
+		#flexbox1 > div:nth-child(1){
+			background-color: green;
+			/*flex: 2;*/
+			flex-order: 2;
+		}
+		#flexbox1 > div:nth-child(2){
+			background-color: yellow;
+			/*flex: 15;*/
+			flex-order: 1;
+		}
+		#flexbox1 > div:nth-child(3){
+			background-color: red;
+			/*flex: 3;*/
+			flex-order: 3;
+		}
+	</style>
+</head>
+<body>
+	<h1>Thanks, Microsoft. This does not work as advertized in your Exam 70-480 study guide. I don't have time to figure out the browser prefixes necessary to make this work. FU!</h1>
+	<div id="flexbox1">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>
